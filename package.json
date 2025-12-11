@@ -1,0 +1,12 @@
+{
+  "name": "viewsmart-stripe-backend",
+  "version": "1.0.0",
+  "description": "Stripe PaymentIntent API for ViewSmart app",
+  "main": "api/create-payment-intent.js",
+  "scripts": {
+    "start": "node api/create-payment-intent.js"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
