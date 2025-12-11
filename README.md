@@ -34,18 +34,21 @@ Tu endpoint será:
 https://viewsmart-stripe-backend.vercel.app/api/create-payment-intent
 ```
 
-## API
+## API Endpoints
 
-### POST /api/create-payment-intent
+### 1. Create Payment Intent
+**POST** `/api/create-payment-intent`
+
+Creates a PaymentIntent for custom payment flows.
 
 **Request:**
 ```json
 {
-  "amount": 249900,
+  "amount": 50000,
   "currency": "mxn",
-  "customerEmail": "cliente@email.com",
+  "customerEmail": "cliente@example.com",
   "customerName": "Juan Pérez",
-  "description": "Bastón Inteligente"
+  "description": "Cámara HD Pro"
 }
 ```
 
@@ -54,6 +57,30 @@ https://viewsmart-stripe-backend.vercel.app/api/create-payment-intent
 {
   "clientSecret": "pi_xxx_secret_xxx",
   "paymentIntentId": "pi_xxx"
+}
+```
+
+### 2. Create Checkout Session (Recommended)
+**POST** `/api/create-checkout-session`
+
+Creates a Stripe Checkout Session for hosted payment page.
+
+**Request:**
+```json
+{
+  "amount": 50000,
+  "currency": "mxn",
+  "customerEmail": "cliente@example.com",
+  "customerName": "Juan Pérez",
+  "description": "Cámara HD Pro"
+}
+```
+
+**Response:**
+```json
+{
+  "sessionId": "cs_test_xxx",
+  "url": "https://checkout.stripe.com/c/pay/cs_test_xxx"
 }
 ```
 
